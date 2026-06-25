@@ -1,0 +1,52 @@
+{
+  "projectName": "Roppongi",
+  "appMode": "dryRun",
+  "midiInput": {
+    "autoDetect": "APC mini",
+    "preferredDevices": ["APC mini", "loopMIDI"]
+  },
+  "targets": [
+    {
+      "id": "roppongi-pharos OSC",
+      "label": "LPC2",
+      "type": "osc",
+      "host": "192.168.0.116",
+      "port": 9001
+    }
+  ],
+  "triggers": [
+    {
+      "triggerId": "cue-blackout",
+      "label": "消灯",
+      "actions": [
+        {
+          "target": "roppongi-pharos OSC",
+          "address": "/cue/ch1",
+          "args": []
+        }
+      ],
+      "inputs": {
+        "screen": [{ "buttonId": "cue-blackout" }],
+        "midi": [{ "type": "note", "note": 56, "channel": 1 }]
+      },
+      "group": "Act1"
+    },
+    {
+      "triggerId": "cue-pinspo",
+      "label": "ピンスポ",
+      "actions": [
+        {
+          "target": "roppongi-pharos OSC",
+          "address": "/cue/ch2",
+          "args": []
+        }
+      ],
+      "inputs": {
+        "screen": [{ "buttonId": "cue-pinspo" }],
+        "midi": [{ "type": "note", "note": 48, "channel": 1 }]
+      },
+      "group": "Act1"
+    }
+  ],
+  "schedules": []
+}

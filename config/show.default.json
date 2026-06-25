@@ -1,0 +1,11 @@
+{
+  "projectName": "Demo Show",
+  "appMode": "dryRun",
+  "midiInput": {
+    "autoDetect": "APC mini",
+    "preferredDevices": ["APC mini", "loopMIDI"]
+  },
+  "targets": [],
+  "triggers": [],
+  "schedules": []
+}

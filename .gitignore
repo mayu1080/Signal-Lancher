@@ -1,0 +1,9 @@
+node_modules/
+out/
+dist/
+release/
+logs/*.log
+config/show.default.json.bak
+config/show.default.json.tmp
+.DS_Store
+*.local
