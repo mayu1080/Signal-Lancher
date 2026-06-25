@@ -44,6 +44,18 @@ npm run dev
 起動時エラー（設定の致命的欠落）がある場合、ウィンドウが開かないかエラーダイアログが出ます。  
 target 参照エラーなどはモニターに `[ERROR]` が出ますが、アプリは起動を続けます。
 
+### 別 PC への配布（portable + show.json）
+
+1. ビルド成果物 `release/Signal-Launcher-x.x.x-portable.exe` を USB 等にコピー
+2. **同じフォルダ**に `show.json` を置く  
+   - 事前に **設定** → **エクスポート** した JSON を `show.json` にリネーム  
+   - または `config/show.roppongi.example.json` 等を `show.json` としてコピー
+3. 現場 PC で exe をダブルクリック → 起動時に自動読込  
+   - モニターに `[CONFIG] Loaded portable show.json: ...` が出れば成功
+4. **設定** → **インポート** は不要（従来どおり手動インポートも可）
+
+**注意:** アプリ内で保存した設定は `%APPDATA%\signal-launcher\` に残ります。USB 上の `show.json` を差し替えた場合、**更新日時が新しい方**が次回起動時に反映されます。
+
 ---
 
 ## 3. 画面構成（日本語 UI）

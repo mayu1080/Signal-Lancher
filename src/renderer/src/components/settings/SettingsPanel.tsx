@@ -131,6 +131,7 @@ export function SettingsPanel({ onSaved, onDirtyChange, isLive = false }: Settin
       <div className="settings-path">
         <strong>{ui.settings.configPath}:</strong> {configPath || '—'}
       </div>
+      <p className="settings-hint">{ui.settings.portableSidecarHint}</p>
 
       <form className="settings-form" onSubmit={(e) => void onSave(e)}>
         <label className="form-field">

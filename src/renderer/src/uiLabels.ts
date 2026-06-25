@@ -259,7 +259,9 @@ export const ui = {
     jsonCopy: 'コピー',
     jsonCopySuccess: 'クリップボードにコピーしました',
     jsonCopyFailed: 'コピーに失敗しました',
-    jsonPreviewFailed: '設定の読み込みに失敗しました'
+    jsonPreviewFailed: '設定の読み込みに失敗しました',
+    portableSidecarHint:
+      '配布用: portable.exe と同じフォルダに show.json を置くと、起動時に自動で読み込みます（show.json の方が新しい場合は上書き更新）。'
   }
 } as const
 

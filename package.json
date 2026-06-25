@@ -1,6 +1,6 @@
 {
   "name": "signal-launcher",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Windows signal launcher for OSC/UDP/MIDI",
   "author": "mayu1080",
   "license": "MIT",

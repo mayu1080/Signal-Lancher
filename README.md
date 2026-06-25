@@ -127,9 +127,21 @@ JSON Schema は `config/show.schema.json` に定義されています。
 | **アプリ内 UI**（セットアップモード） | 送信先・Cue・アクション・スケジュール・案件名・MIDI マッピング |
 | **JSON 直接編集** | 一括編集、`midiInput` 設定 |
 | **エクスポート / インポート** | バックアップ、別 PC への設定移行 |
+| **portable 横の `show.json`** | exe と同じフォルダに置くと起動時に自動読込（v1.1+） |
 
 UI からの保存・インポートは `show.default.json` に書き込み、**即座にランタイムへ反映**されます（再起動不要）。  
 保存時は自動で `show.default.json.bak` が作成されます。外部エディタで JSON を編集した場合は **設定** タブの **ファイルから再読込** を使用してください。
+
+### portable 配布（v1.1+）
+
+別 PC へ USB 等で渡す場合:
+
+1. `Signal-Launcher-x.x.x-portable.exe` をフォルダに置く
+2. 同じフォルダに **`show.json`** を置く（**設定** → **エクスポート** で保存したファイルをリネーム可）
+3. exe を起動 → `show.json` が自動で読み込まれる
+
+`show.json` の更新日時がアプリ内に保存済みの設定より新しい場合、次回起動時に上書き更新されます。  
+パッケージ版の保存先は `%APPDATA%\signal-launcher\config\show.default.json` です。
 
 ### アプリ内で編集できる項目
 
