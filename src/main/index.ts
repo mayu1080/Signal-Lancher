@@ -16,11 +16,7 @@ const PRODUCTION_CSP =
 let mainWindow: BrowserWindow | null = null
 
 function setupContentSecurityPolicy(): void {
-  const isDev = Boolean(process.env.ELECTRON_RENDERER_URL)
-
-  if (isDev) {
-    // Vite HMR requires unsafe-eval; Electron warns in dev — expected until packaged.
-    process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
+  if (process.env.ELECTRON_RENDERER_URL) {
     return
   }
 
@@ -36,6 +32,11 @@ function setupContentSecurityPolicy(): void {
       }
     })
   })
+}
+
+// Vite HMR requires unsafe-eval; Electron warns in dev — expected until packaged.
+if (process.env.ELECTRON_RENDERER_URL) {
+  process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = 'true'
 }
 
 function createWindow(): void {
@@ -56,9 +57,9 @@ function createWindow(): void {
   }
 }
 
-setupContentSecurityPolicy()
-
 app.whenReady().then(() => {
+  setupContentSecurityPolicy()
+
   const logger = new Logger()
   const config = loadConfig(logger)
   logger.log('INFO', `Loaded config: ${config.projectName} (appMode: ${config.appMode})`)
